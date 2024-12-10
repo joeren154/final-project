@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    --bg-light: #f2f2fc;
+    --bg-white: #ffffff;
+    --text-dark: #302e4d;
+    --text-muted: #504e70;
+    --primary-color: #ec1839;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    background: var(--bg-light);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar */
+.aside {
+    width: 270px;
+    height: 100vh;
+    background: var(--bg-white);
+    padding: 30px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.aside.hidden {
+    transform: translateX(-100%);
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.logo a span {
+    color: var(--primary-color);
+    font-family: 'Clicker Script', cursive;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row; /* Horizontal layout for larger screens */
+    justify-content: space-around; /* Space items evenly */
+    margin-top: 50px;
+    list-style: none;
+    width: 100%;
+}
+
+.nav li {
+    margin-bottom: 0; /* Remove bottom margin for horizontal layout */
+}
+
+.nav a {
+    text-decoration: none;
+    color: #302e4d;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+.nav a.active, .nav a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 270px;
+    padding: 40px;
+    background: var(--bg-light);
+    min-height: 100vh;
+}
+
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse; /* Reverse order for mobile */
+}
+
+
+.home-info {
+    flex: 0 0 50%; 
+    max-width: 50%;
+    font-size: 18px;
+    text-align: left;
+}
+
+.home-img {
+    flex: 0 0 50%; 
+    max-width: 50%;
+    text-align: center;
+}
+
+.home-img img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-black-100);
+    color: var(--text-black-900);
+    padding: 110px;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-info, .footer-socials {
+    width: 48%;
+}
+
+.footer-info h4, .footer-socials h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.footer-socials ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-socials ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer-socials ul li a {
+    color: var(--text-black-900);
+    font-size: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-black-700);
+}
+
+
+.menu-button {
+    position: fixed;
+    top: 20px; 
+    left: 20px; 
+    z-index: 1000; 
+    background-color: transparent;
+    border: none; 
+    font-size: 24px; 
+    cursor: pointer; 
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    .home-section {
+        flex-direction: column-reverse;
+    }
+
+    .home-info, .home-img {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .home-section {
+        flex-direction: row; /* Change to row to keep side by side */
+    }
+
+    .home-info, .home-img {
+        max-width: 50%; /* Adjust max-width to allow side by side */
+        flex: 0 0 50%; /* Ensure they take up equal space */
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+    .aside {
+        position: absolute;
+        width: 100%;
+    }
+    
+    .nav {
+        flex-direction: column; /* Change to column for vertical layout */
+        width: 100%; /* Ensure it takes full width */
+    }
+
+    .nav.active {
+        display: fixed; /* Show when active */
+    }
+
+    .nav li {
+        margin-bottom: 10px; /* Adjust spacing for vertical layout */
+    }
+}
